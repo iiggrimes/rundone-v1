@@ -9,6 +9,10 @@ public class Shoe {
     private int _currentMiles;
     private int _endOfShoeMiles;
 
+    public Shoe(){
+
+    }
+
     public Shoe(String brand, String name, String color, double size, int startingMiles, int remainingMiles, int currentMiles, int endOfShoeMiles) {
         this._brand = brand;
         this._name = name;
