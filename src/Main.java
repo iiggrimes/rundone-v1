@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -5,25 +6,47 @@ public class Main {
 
         int x = 0;
 
-        Scanner input = new Scanner(System.in);
         System.out.println("New shoe (1) or Recent shoe (2)");
+
+        ArrayList<Shoe> shoeCollection = new ArrayList<>();
+
+        Scanner input = new Scanner(System.in);
 
         if (input.nextInt() == 1) {
 
             System.out.println("What is the shoe brand?");
-            Shoe[] newShoe = new Shoe[10]; //10 a random number i hope i dont regret it
-            newShoe[x] = new Shoe();
 
             String brand = input.nextLine();
-            newShoe[x].set_brand(brand);
-
             String name = input.nextLine();
-            newShoe[x].set_brand(name);
+            String color = input.nextLine();
+            double size = input.nextDouble();
+            double startingMiles = input.nextDouble();
+            double endOfShoeMiles = input.nextDouble();
 
 
-        }
-        else if (input.nextInt() == 2) {
 
+
+
+            Shoe shoe2 = new Shoe(brand,name,color,size,startingMiles,endOfShoeMiles);
+            shoeCollection.add(shoe2);
+
+
+            //shoeCollection.add(shoe1);
+
+
+
+
+        } else {
+
+
+            Shoe shoe1 = new Shoe("Adidas","Sl2","White",13.5,25,400);
+            shoeCollection.add(shoe1);
+
+
+            for (int i = 0; i< shoeCollection.size(); i++ ){
+                System.out.println(shoeCollection.get(i).toString());
+
+            }
         }
 
     }
