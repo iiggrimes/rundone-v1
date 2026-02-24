@@ -4,50 +4,38 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        int x = 0;
-
-        System.out.println("New shoe (1) or Recent shoe (2)");
-
-        ArrayList<Shoe> shoeCollection = new ArrayList<>();
-
         Scanner input = new Scanner(System.in);
+        ShoeManager manager = new ShoeManager();
 
-        if (input.nextInt() == 1) {
+        while (true) {
+            System.out.println("1. Add Shoe");
+            System.out.println("2. View Shoes");
+            System.out.println("3. Log Run");
+            System.out.println("4. Exit");
 
-            System.out.println("What is the shoe brand?");
+            int choice = input.nextInt();
+            input.nextLine();
 
-            String brand = input.nextLine();
-            String name = input.nextLine();
-            String color = input.nextLine();
-            double size = input.nextDouble();
-            double startingMiles = input.nextDouble();
-            double endOfShoeMiles = input.nextDouble();
+            switch (choice) {
+                case 1:
+                    //collect info
+                    //create shoe
+                    //manager.addShoe(...)
+                    break;
 
+                case 2:
+                    manager.listShoes();
+                    break;
 
+                case 3:
+                    //ask which shoe
+                    //ask distance
+                    //manager.logRun(...)
+                    break;
 
-
-
-            Shoe shoe2 = new Shoe(brand,name,color,size,startingMiles,endOfShoeMiles);
-            shoeCollection.add(shoe2);
-
-
-            //shoeCollection.add(shoe1);
-
-
-
-
-        } else {
-
-
-            Shoe shoe1 = new Shoe("Adidas","Sl2","White",13.5,25,400);
-            shoeCollection.add(shoe1);
-
-
-            for (int i = 0; i< shoeCollection.size(); i++ ){
-                System.out.println(shoeCollection.get(i).toString());
-
+                case 4:
+                    return;
             }
         }
-
     }
 }

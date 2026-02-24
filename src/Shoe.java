@@ -4,8 +4,6 @@ public class Shoe {
     private String name;
     private String color;
     private double size;
-    private double startingMiles;
-    private double remainingMiles;
     private double currentMiles;
     private double endOfShoeMiles;
 
@@ -13,15 +11,24 @@ public class Shoe {
 
     }
 
-    public Shoe(String brand, String name, String color, double size, double startingMiles, double endOfShoeMiles) {
+    public Shoe(String brand, String name, String color, double size, double endOfShoeMiles) {
         this.brand = brand;
         this.name = name;
         this.color = color;
         this.size = size;
-        this.startingMiles = startingMiles;
-        remainingMiles = endOfShoeMiles - startingMiles;
-        currentMiles = startingMiles;
         this.endOfShoeMiles = endOfShoeMiles;
+    }
+
+    public double getRemainingMiles() {
+        return endOfShoeMiles - currentMiles;
+    }
+
+    public void logRun(double distance) {
+        currentMiles += distance;
+    }
+
+    public boolean needsReplacement() {
+        return currentMiles >= endOfShoeMiles;
     }
 
     @Override
@@ -29,7 +36,7 @@ public class Shoe {
         return "Shoe: " + brand + " " + name +
                 "\n" + color + ", Size " + size +
                 "\n" + currentMiles + " / " + endOfShoeMiles + " miles currently" +
-                "\nSo " + remainingMiles + " miles remaining\n";
+                "\nSo " + getRemainingMiles() + " miles remaining\n";
 
     }
 
@@ -63,22 +70,6 @@ public class Shoe {
 
     public void setSize(double size) {
         this.size = size;
-    }
-
-    public double getStartingMiles() {
-        return startingMiles;
-    }
-
-    public void setStartingMiles(double startingMiles) {
-        this.startingMiles = startingMiles;
-    }
-
-    public double getRemainingMiles() {
-        return remainingMiles;
-    }
-
-    public void setRemainingMiles(double remainingMiles) {
-        this.remainingMiles = remainingMiles;
     }
 
     public double getCurrentMiles() {
